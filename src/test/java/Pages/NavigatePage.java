@@ -13,6 +13,9 @@ public class NavigatePage extends ParentPage{
     @FindBy(xpath = "//input[@value='1']")
     public WebElement yesRadioBtn;
 
+    @FindBy(xpath = "//input[@value='0']")
+    public WebElement noRadioBtn;
+
     @FindBy(xpath = "//input[@value='Continue']")
     public WebElement cntBtn;
 

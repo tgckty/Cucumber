@@ -17,6 +17,10 @@ public class ParentPage {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
+    //  kendi sendKeys metodumuzu yazacağız:
+    //   mySendKeys(locator,"username"){
+    //       scroll, gözükene kadar bekle, clear, sendKeys }
+
     public void mySendKeys(WebElement e, String text) {
 
         wait.until(ExpectedConditions.visibilityOf(e)); // metoda gönderilen element görünene kadar bekle
@@ -37,16 +41,5 @@ public class ParentPage {
         js.executeScript("arguments[0].scrollIntoView();", e);
     }
 
-    public void verifyTitleContainsText(String text) {
-        Assert.assertTrue(GWD.getDriver().getTitle().toLowerCase().contains(text.toLowerCase()), "Login işleminde Hata.");
-    }
-
-    public void verifyTextEquals(WebElement e,String text) {
-        Assert.assertEquals(e.getText(),text, "İşlemde hata.");
-    }
-
-    public void verifyUrlContainsText(String text) {
-        Assert.assertTrue(GWD.getDriver().getCurrentUrl().contains(text), "İşlemde hata.");
-    }
 
 }

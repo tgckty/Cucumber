@@ -12,4 +12,4 @@ Feature: Contact Us Message Submission
     And User navigates to the Contact Us page
     When User enters a message with at least 10 characters
     And User clicks the Submit button
-    Then URL should contain "success"
+    Then URL should contain success

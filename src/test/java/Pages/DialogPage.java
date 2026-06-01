@@ -23,15 +23,16 @@ public class DialogPage extends ParentPage{
     public WebElement btnLogin;
 
 
-    //kendi sendKeys metodumuzu yazacağız.
-//    mySendKeys(locator,"username"){
-//    scroll
-//    gözükene kadar bekle
-//    clear
-//    sendKeys
-//    }
+    public void verifyTitleContainsText(String text) {
+        Assert.assertTrue(GWD.getDriver().getTitle().toLowerCase().contains(text.toLowerCase()), "Login işleminde Hata.");
+    }
 
+    public void verifyTextEquals(WebElement e,String text) {
+        Assert.assertEquals(e.getText(),text, "NewsLetter subscribe işleminde hata.");
+    }
 
-
+    public void verifyUrlContainsText(String text) {
+        Assert.assertTrue(GWD.getDriver().getCurrentUrl().contains(text), "Contuct us işlemined hata.");
+    }
 
 }
