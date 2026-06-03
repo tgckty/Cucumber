@@ -9,7 +9,7 @@ Feature: Multi Scenario Contuct Us Parameter
     And User navigates to the Contact Us page
     When User enters a message with at least 10 characters
     Then URL should contain success
-
+  @Regression
   Scenario: Contact Us Send a message as a parameter
     And User navigates to the Contact Us page
     When Send a message as "Merhaba Testing dünyası 2: Cucumber dayız" and click to Submit

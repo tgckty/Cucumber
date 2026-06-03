@@ -17,3 +17,6 @@ Feature: Multi Scenario Contuct Us Parameter
       | Öğrenilen konular: Selenium |
       | Öğrenilen konular: TestNg   |
       | Öğrenilen konular: Cucumber |
+
+    #  dataProvider (TestNG için), Senaryo Outline (cucumber)
+    #  görevi verilen her değer kadar, tüm senayo çalışır

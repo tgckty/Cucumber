@@ -14,13 +14,16 @@
         And Navigate to NewsLetter
         When Click to Yes
         Then Success message should be displayed
+          | Success: Your newsletter subscription has been successfully updated! |
 
     Scenario:
       And Navigate to NewsLetter
       When Click to No
       Then Success message should be displayed
+        | Success: Your newsletter subscription has been successfully updated! |
 
     Scenario:
       And Navigate to NewsLetter
-      When Checked to unchecked option
+      When Check to unchecked option
       Then Success message should be displayed
+        | Success: Your newsletter subscription has been successfully updated! |

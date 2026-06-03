@@ -19,28 +19,29 @@ public class _02_NewsLetterSteps {
 
     @When("Click to Yes")
     public void clickToYes() {
-        np.myClick(np.yesRadioBtn);
-        np.myClick(np.cntBtn);
+        np.myClick(dp.yesRadioBtn);
+        np.myClick(dp.cntBtn);
     }
 
+
     @Then("Success message should be displayed")
-    public void successMessageShouldBeDisplayed() {
-        dp.verifyTextEquals(np.successMessage,"Success: Your newsletter subscription has been successfully updated!");
+    public void successMessageShouldBeDisplayed(String text) {
+        dp.verifyTextEquals(dp.successMessage,text);
     }
 
     @When("Click to No")
     public void clickToNo() {
-        np.myClick(np.noRadioBtn);
-        np.myClick(np.cntBtn);
+        np.myClick(dp.noRadioBtn);
+        np.myClick(dp.cntBtn);
     }
 
-    @When("Checked to unchecked option")
-    public void checkedToUncheckedOption() {
-       if(np.yesRadioBtn.isSelected())
-           np.myClick(np.noRadioBtn);
+    @When("Check to unchecked option")
+    public void checkToUncheckedOption() {
+       if(dp.yesRadioBtn.isSelected())
+           np.myClick(dp.noRadioBtn);
        else
-           np.myClick(np.yesRadioBtn);
+           np.myClick(dp.yesRadioBtn);
 
-       np.myClick(np.cntBtn);
+       np.myClick(dp.cntBtn);
     }
 }

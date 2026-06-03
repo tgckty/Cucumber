@@ -12,10 +12,11 @@ Feature: Multi Scenario
     And Navigate to NewsLetter
     When Click to Yes
     Then Success message should be displayed
+      | Success: Your newsletter subscription has been successfully updated! |
 
   Scenario: Successful message submission
 
     And User navigates to the Contact Us page
     When User enters a message with at least 10 characters
     And User clicks the Submit button
-    Then URL should contain "success"
+    Then URL should contain success

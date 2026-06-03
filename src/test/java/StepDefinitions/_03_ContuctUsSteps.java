@@ -17,12 +17,12 @@ public class _03_ContuctUsSteps {
 
     @When("User enters a message with at least 10 characters")
     public void userEntersAMessageWithAtLeastCharacters() {
-        np.mySendKeys(np.enquiry, "mesajım budur benim.");
+        np.mySendKeys(dp.enquiry, "mesajım budur benim.");
     }
 
     @And("User clicks the Submit button")
     public void userClicksTheSubmitButton() {
-        np.myClick(np.submitBtn);
+        np.myClick(dp.submitBtn);
     }
 
     @Then("URL should contain success")
@@ -32,7 +32,7 @@ public class _03_ContuctUsSteps {
 
     @When("Send a message as {string} and click to Submit")
     public void sendAMessageAsAndClickToSubmit(String mesaj) {
-        np.mySendKeys(np.enquiry, mesaj);
-        np.myClick(np.submitBtn);
+        np.mySendKeys(dp.enquiry, mesaj);
+        np.myClick(dp.submitBtn);
     }
 }

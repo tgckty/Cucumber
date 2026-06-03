@@ -1,5 +1,6 @@
 Feature: NewsLetter Functionality
 
+  @SmokeTest
   Scenario: Subscribe to Website
     Given Navigate to WebSite
     When Enter username and password and click login button
@@ -7,3 +8,4 @@ Feature: NewsLetter Functionality
     And Navigate to NewsLetter
     When Click to Yes
     Then Success message should be displayed
+      | Success: Your newsletter subscription has been successfully updated! |
