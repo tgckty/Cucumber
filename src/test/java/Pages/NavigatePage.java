@@ -14,14 +14,16 @@ public class NavigatePage extends ParentPage {
     @FindBy(linkText = "Edit Account")
     public WebElement editAccount;
 
-    public WebElement getWebElement(String strElement)
-    {
-        switch (strElement)
-        {
-            case "Newsletter" : return this.newsletter;
-            case "ContactUs" : return this.contuctUs;
-            case "EditAccount" : return this.editAccount;
-            default: return null;
+    public WebElement getWebElement(String strElement) {
+        switch (strElement) {
+            case "Newsletter":
+                return this.newsletter;
+            case "ContactUs":
+                return this.contuctUs;
+            case "EditAccount":
+                return this.editAccount;
+            default:
+                return null;
         }
     }
 

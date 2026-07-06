@@ -4,32 +4,34 @@
 # 3- Ayrı bir test ile Newsletter  Subscribe durumunu kontrol ediniz YES ise NO, NO ise YES yapınız.
 
 Feature: DataTable Newsletter Functionality 3 Test Case (Senaryo)
+
   Background:
     Given Navigate to WebSite
     When Enter username and password and click login button
     Then User should login successfully
 
-  Scenario:
+  @SmokeTest
+  Scenario: 1
     And Click on Element Navigate
       | Newsletter |
     When Click on Element Dialog
       | yesRadioButton |
-      | cntBtn |
+      | cntBtn         |
     Then Success message should be displayed
-      |Success: Your newsletter subscription has been successfully updated!|
+      | asfgafga |
 
-  Scenario:
+  Scenario: 2
     And Click on Element Navigate
       | Newsletter |
     When Click on Element Dialog
       | noRadioButton |
-      | cntBtn |
+      | cntBtn        |
     Then Success message should be displayed
-    |Success: Your newsletter subscription has been successfully updated!|
+      | Success: Your newsletter subscription has been successfully updated! |
 
-  Scenario:
+  Scenario: 3
     And Click on Element Navigate
       | Newsletter |
     When Check to unchecked option
     Then Success message should be displayed
-      |Success: Your newsletter subscription has been successfully updated!|
+      | Success: Your newsletter subscription has been successfully updated! |

@@ -2,9 +2,13 @@ package StepDefinitions;
 
 import Pages.DialogPage;
 import Pages.NavigatePage;
+import Utilities.ExcelUtility;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.util.List;
 
 public class _08_EditAccountSteps {
     NavigatePage np = new NavigatePage();
@@ -26,5 +30,23 @@ public class _08_EditAccountSteps {
     @Then("Account should successfully updated")
     public void accountShouldSuccessfullyUpdated() {
         dp.verifyTextEquals(dp.successMessage, "Success: Your account has been successfully updated.");
+    }
+
+    @When("User update EditAccount from Excel")
+    public void userUpdateEditAccountFromExcel() {
+        List<List<String>> tablo= ExcelUtility.getData(
+                "src/test/java/ApachePOI/Resource/EditAccount.xlsx",
+                "editAccount",
+                2
+        );
+
+        for(List<String> satir : tablo)
+        {
+            np.myClick(np.editAccount);
+            dp.mySendKeys(dp.firstName, satir.get(0));
+            dp.mySendKeys(dp.lastName, satir.get(1));
+            dp.myClick(dp.cntBtn);
+            dp.SuccessMessageValidation();
+        }
     }
 }

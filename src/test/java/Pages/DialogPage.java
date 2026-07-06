@@ -1,9 +1,13 @@
 package Pages;
 
+
 import Utilities.GWD;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+
+import java.util.List;
 
 
 public class DialogPage extends ParentPage {
@@ -41,6 +45,15 @@ public class DialogPage extends ParentPage {
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     public WebElement successMessage;
 
+    @FindBy(name = "search")
+    public WebElement searchBox;
+
+    @FindBy(css = "[class='btn btn-default btn-lg']")
+    public WebElement srcBtn;
+
+    @FindBy(css = "[class='caption'] a")
+    public List<WebElement> srcNameList;
+
     public WebElement getWebElement(String strElement) {
         switch (strElement) {
             case "inputFirstname":
@@ -57,6 +70,10 @@ public class DialogPage extends ParentPage {
                 return this.yesRadioBtn;
             case "noRadioButton":
                 return this.noRadioBtn;
+            case "searchBox":
+                return this.searchBox;
+            case "srcBtn":
+                return this.srcBtn;
             default:
                 return null;
         }
@@ -71,7 +88,11 @@ public class DialogPage extends ParentPage {
     }
 
     public void verifyUrlContainsText(String text) {
-        Assert.assertTrue(GWD.getDriver().getCurrentUrl().contains(text), "Contuct us işlemined hata.");
+        Assert.assertTrue(GWD.getDriver().getCurrentUrl().contains(text), "Beklenen değer bulunamadı.");
     }
 
+    public void SuccessMessageValidation() {
+        wait.until(ExpectedConditions.visibilityOf(successMessage));
+        Assert.assertTrue(successMessage.getText().toLowerCase().contains("success"));
+    }
 }
