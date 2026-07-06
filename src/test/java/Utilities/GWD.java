@@ -2,6 +2,7 @@ package Utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import java.time.Duration;
@@ -24,11 +25,20 @@ public class GWD {
         if (threadDriver.get() == null)//bu hatta driver yok ise
         {
             switch (threadBrowserName.get()) {
-                case "chrome":
+                case "firefox":
                     threadDriver.set(new ChromeDriver()); break; // bu hatta bir driver set et
                 case "edge":
                     threadDriver.set(new EdgeDriver()); break;
                 default:
+                    if (isRunningOnJenkins()){
+
+                        //aşağıdaki 2 satır jenkins içinb eklendi
+                        ChromeOptions ChromeOptions = new ChromeOptions();
+                        ChromeOptions.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
+
+                        threadDriver.set(new ChromeDriver(ChromeOptions));
+                    }
+                    else
                     threadDriver.set(new ChromeDriver());
             }
 
@@ -38,7 +48,10 @@ public class GWD {
 
         return threadDriver.get();
     }
-
+    public static boolean isRunningOnJenkins() {
+        String jenkinsHome = System.getenv("JENKINS_HOME");
+        return jenkinsHome != null && !jenkinsHome.isEmpty();
+    }
     public static void quitDriver() {
         //test sonucu ekranı bir miktar beklesin diye
         try {
