@@ -18,7 +18,7 @@ Feature: DataTable Newsletter Functionality 3 Test Case (Senaryo)
       | yesRadioButton |
       | cntBtn         |
     Then Success message should be displayed
-      | asfgafga |
+      | Success: Your newsletter subscription has been successfully updated! |
 
   Scenario: 2
     And Click on Element Navigate
